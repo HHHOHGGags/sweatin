@@ -1,4 +1,17 @@
 require('dotenv').config();
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 4000;
+
+// وب سرور برای رندر
+app.get('/', (req, res) => {
+  res.send('Exchange Bot is running!');
+});
+app.listen(port, () => {
+  console.log(`Web server listening on port ${port}`);
+});
+
+// کدهای ربات دیسکورد
 const { Client, GatewayIntentBits, ActionRowBuilder, StringSelectMenuBuilder, StringSelectMenuOptionBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, ButtonBuilder, ButtonStyle, ChannelType, PermissionsBitField } = require('discord.js');
 
 const client = new Client({
